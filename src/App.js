@@ -1,8 +1,25 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 
 import CourseGoalList from './components/CourseGoals/CourseGoalList/CourseGoalList';
 import CourseInput from './components/CourseGoals/CourseInput/CourseInput';
-import './App.css';
+
+const Goals = styled.section`
+  width: 35rem;
+  max-width: 90%;
+  margin: 3rem auto;
+
+`
+
+const GoalForm = styled.section`
+  width: 30rem;
+  max-width: 90%;
+  margin: 3rem auto;
+  padding: 2rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+
+`
 
 const App = () => {
   const [courseGoals, setCourseGoals] = useState([
@@ -37,10 +54,10 @@ const App = () => {
 
   return (
     <div>
-      <section id="goal-form">
+      <GoalForm>
         <CourseInput onAddGoal={addGoalHandler} />
-      </section>
-      <section id="goals">
+      </GoalForm>
+      <Goals>
         {content}
         {/* {courseGoals.length > 0 && (
           <CourseGoalList
@@ -49,7 +66,7 @@ const App = () => {
           />
         ) // <p style={{ textAlign: 'center' }}>No goals found. Maybe add one?</p>
         } */}
-      </section>
+      </Goals>
     </div>
   );
 };
